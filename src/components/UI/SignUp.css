@@ -1,0 +1,39 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25rem;
+  background-color: rgba(100, 100, 100, 0.5);
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  border-radius: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+button {
+  margin-top: 2rem;
+  width: 11rem;
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: brown;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

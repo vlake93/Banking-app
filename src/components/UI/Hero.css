@@ -1,0 +1,11 @@
+.hero {
+  height: 93.25vh;
+  background: url(../../assets/hero-bg.jpg) fixed center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 0 4rem;
+}

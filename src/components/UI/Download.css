@@ -1,0 +1,54 @@
+.download {
+  height: 40rem;
+  width: 50rem;
+  background-color: rgba(100, 100, 100, 0.5);
+  box-sizing: border-box;
+  padding: 0 2rem;
+  border-radius: 2rem;
+  /* border: 2px solid brown; */
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.responsive-logo {
+  height: 25rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.button {
+  margin-top: 4rem;
+  height: 3.2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.ios {
+  background: url(../../assets/ios.png) center;
+  background-size: cover;
+}
+
+.android {
+  background: url(../../assets/android.png) center;
+  background-size: cover;
+}
+
+.windows {
+  background: url(../../assets/windows.png) center;
+  background-size: cover;
+}
+
+.mac {
+  background: url(../../assets/mac.png) center;
+  background-size: cover;
+}
