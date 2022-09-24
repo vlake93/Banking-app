@@ -2,6 +2,7 @@ import Header from "./components/UI/Header";
 import Hero from "./components/UI/Hero";
 import SignUp from "./components/UI/SignUp";
 import Download from "./components/UI/Download";
+import Footer from "./components/UI/Footer";
 import SignUpModal from "./components/Modals/SignUpModal";
 import "./App.css";
 
@@ -13,6 +14,7 @@ function App() {
         <SignUp></SignUp>
         <Download></Download>
       </Hero>
+      <Footer></Footer>
       {/* <SignUpModal></SignUpModal> */}
     </div>
   );
