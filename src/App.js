@@ -4,12 +4,14 @@ import SignUp from "./components/UI/SignUp";
 import Download from "./components/UI/Download";
 import Footer from "./components/UI/Footer";
 import SignUpModal from "./components/Modals/SignUpModal";
+import Card from "./components/Card/Card";
 import "./App.css";
 
 function App() {
   return (
     <div>
       <Header></Header>
+      <Card></Card>
       <Hero>
         <SignUp></SignUp>
         <Download></Download>
