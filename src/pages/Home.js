@@ -3,8 +3,6 @@ import Hero from "../components/UI//Hero";
 import SignUp from "../components/UI//SignUp";
 import Download from "../components/UI//Download";
 import Footer from "../components/UI//Footer";
-import SignUpModal from "../components/Modals/SignUpModal";
-import Card from "../components/Card/Card";
 import "./Home.css";
 
 const Home = () => {
