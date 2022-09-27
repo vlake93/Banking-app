@@ -20,7 +20,7 @@ function Header() {
         <Link className="header-link" href="#none">
           Corporate
         </Link>
-        <Link to="/signup" li className="header-link" href="#none">
+        <Link className="header-link" href="#none">
           Login
         </Link>
       </div>

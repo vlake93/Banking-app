@@ -5,7 +5,8 @@
   box-sizing: border-box;
   padding: 0 2rem;
   border-radius: 2rem;
-  /* border: 2px solid brown; */
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .logo-container {
@@ -25,9 +26,10 @@
   gap: 3rem;
 }
 
-.button {
+.download-button {
+  height: 3rem;
+  width: 10rem;
   margin-top: 4rem;
-  height: 3.2rem;
   cursor: pointer;
   border-radius: 0.5rem;
   border: none;
@@ -35,20 +37,24 @@
 
 .ios {
   background: url(../../assets/ios.png) center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .android {
   background: url(../../assets/android.png) center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .windows {
   background: url(../../assets/windows.png) center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .mac {
   background: url(../../assets/mac.png) center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

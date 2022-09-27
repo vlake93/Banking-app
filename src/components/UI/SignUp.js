@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./SignUp.css";
 
 function SignUp() {
@@ -8,7 +9,9 @@ function SignUp() {
         <p>*Limited to first 100 customers</p>
       </div>
       <div className="signup-button">
-        <button>Sign up</button>
+        <Link className="signup-link" to="/signup">
+          Sign up
+        </Link>
       </div>
     </div>
   );

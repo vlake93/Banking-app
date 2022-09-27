@@ -1,7 +1,8 @@
 .footer {
+  height: 18.3vh;
   background-color: brown;
   color: white;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -10,7 +11,7 @@
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
 }
 
 h3 {
@@ -19,13 +20,13 @@ h3 {
   line-height: 1.75;
 }
 
-p {
-  font-size: 1.25rem;
+.footer-links {
+  font-size: 1.15rem;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-p:hover {
+.footer-links:hover {
   color: #bbb;
 }
 
@@ -64,5 +65,7 @@ p:hover {
 .quick-links {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1.25rem;
 }
