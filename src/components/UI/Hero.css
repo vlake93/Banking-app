@@ -1,5 +1,5 @@
 .hero {
-  height: 75.1vh;
+  height: 77.25vh;
   background: url(../../assets/hero-bg.jpg) fixed center;
   background-size: cover;
   display: flex;
@@ -8,4 +8,16 @@
   align-items: flex-start;
   gap: 2.5rem;
   padding: 0 4rem;
+}
+
+@media screen and (max-width: 125em) {
+  .hero {
+    height: 75.6vh;
+  }
+}
+
+@media screen and (max-width: 81.25em) {
+  .hero {
+    height: 77.9vh;
+  }
 }

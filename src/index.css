@@ -24,3 +24,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@media screen and (max-width: 125em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 81.25em) {
+  html {
+    font-size: 45%;
+  }
+}

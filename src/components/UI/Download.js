@@ -9,10 +9,10 @@ function Download() {
       </div>
       <h2>Available anytime, anywhere on any device</h2>
       <div className="buttons-container">
-        <button className="button ios"></button>
-        <button className="button android"></button>
-        <button className="button windows"></button>
-        <button className="button mac"></button>
+        <button className="download-button ios"></button>
+        <button className="download-button android"></button>
+        <button className="download-button windows"></button>
+        <button className="download-button mac"></button>
       </div>
     </div>
   );

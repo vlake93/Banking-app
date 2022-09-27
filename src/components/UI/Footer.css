@@ -1,31 +1,32 @@
 .footer {
+  height: 16vh;
   background-color: brown;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 15rem;
   text-transform: uppercase;
 }
 
-h2 {
-  font-size: 2.5rem;
+.footer-header {
+  font-size: 1.75rem;
 }
 
-h3 {
+.footer-text {
   font-size: 1rem;
   letter-spacing: 1.25px;
   line-height: 1.75;
 }
 
-p {
-  font-size: 1.25rem;
+.footer-links {
+  font-size: 1.15rem;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-p:hover {
+.footer-links:hover {
   color: #bbb;
 }
 
@@ -35,7 +36,7 @@ p:hover {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: 35rem;
+  width: 40rem;
 }
 
 .social-logos {
@@ -64,5 +65,7 @@ p:hover {
 .quick-links {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1.25rem;
 }

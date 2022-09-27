@@ -1,3 +1,6 @@
+import { Link, Route, Routes } from "react-router-dom";
+import User from "../../pages/User";
+import SignUp from "./SignUpBox";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 
@@ -8,18 +11,18 @@ function Header() {
         <img className="header-logo" src={logo} alt="logo" />
       </div>
       <div className="header-links">
-        <a className="header-link" href="#none">
+        <Link className="header-link" href="#none">
           Who we are
-        </a>
-        <a className="header-link" href="#none">
+        </Link>
+        <Link className="header-link" href="#none">
           Contact us
-        </a>
-        <a className="header-link" href="#none">
+        </Link>
+        <Link className="header-link" href="#none">
           Corporate
-        </a>
-        <a className="header-link" href="#none">
+        </Link>
+        <Link className="header-link" href="#none">
           Login
-        </a>
+        </Link>
       </div>
     </div>
   );
