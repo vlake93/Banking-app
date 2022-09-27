@@ -1,6 +1,6 @@
-import './Home-functions.css';
+import './Functions.css';
 
-function homeFunctions() {
+function Functions() {
     return(
         <div className="functions">
             <ul>
@@ -14,4 +14,4 @@ function homeFunctions() {
     )
 }
 
-export default homeFunctions;
+export default Functions;
