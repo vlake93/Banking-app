@@ -1,8 +1,9 @@
 import Header from "../components/UI/Header";
 import Hero from "../components/UI//Hero";
-import SignUp from "../components/UI/SignUpBox";
+import SignUpBox from "../components/UI/SignUpBox";
 import Download from "../components/UI//Download";
 import Footer from "../components/UI//Footer";
+import Login from "../components/UI/Login";
 import "./Home.css";
 
 const Home = () => {
@@ -10,8 +11,11 @@ const Home = () => {
     <div>
       <Header></Header>
       <Hero>
-        <SignUp></SignUp>
-        <Download></Download>
+        <div className="flex-box">
+          <SignUpBox></SignUpBox>
+          <Download></Download>
+        </div>
+        <Login></Login>
       </Hero>
       <Footer></Footer>
     </div>
