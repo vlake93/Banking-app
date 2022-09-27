@@ -6,13 +6,12 @@ function Card() {
     <div className="credit-card">
       <div className="first-row">
         <div className="bank">
-          <img className="logo" src={upper} />
+          <img className="logo" src={upper} alt="logo" />
           <h2>ViCash</h2>
         </div>
         <h2 className="platinum"> Platinum</h2>
       </div>
       <div className="second-row">
-        <img />
         <h2>8008-6969-4200-1234</h2>
       </div>
       <div className="third-row">
@@ -21,7 +20,7 @@ function Card() {
           <h3>4206</h3>
         </div>
         <h2 className="user-name">boyet protacio</h2>
-        <img className="lower-logo" src={lower} />
+        <img className="lower-logo" src={lower} alt="logo" />
       </div>
     </div>
   );

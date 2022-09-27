@@ -6,7 +6,7 @@ function SignUpModal() {
     <div className="sign-up-modal">
       <form className="sign-up-form" method="GET">
         <div className="sign-up-design">
-          <img src={logo} className="logo" />
+          <img src={logo} className="logo" alt="logo" />
         </div>
         <div className="sign-up-inputs">
           <button className="close" type="button">
