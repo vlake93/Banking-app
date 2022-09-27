@@ -1,0 +1,17 @@
+.functions > ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.functions > ul > li {
+    list-style-type: none;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.functions > ul > li > button {
+    padding: 1rem;
+    font-size: 2rem;
+}
