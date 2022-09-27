@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <Header></Header>
-      <Card></Card>
+      {/* <Card></Card> */}
       <Hero>
         <SignUp></SignUp>
         <Download></Download>

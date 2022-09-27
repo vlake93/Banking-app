@@ -21,7 +21,8 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  color: white;
+  color: brown;
+  -webkit-text-stroke: 0.65px #eee;
 }
 
 .platinum {
