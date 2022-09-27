@@ -19,7 +19,7 @@ h1 {
 
 .sign-up-form {
   background-color: #777;
-  height: 50rem;
+  height: 60rem;
   width: 60rem;
   border-radius: 1rem;
   display: flex;
@@ -76,4 +76,17 @@ h1 {
   right: 2.5rem;
   cursor: pointer;
   text-decoration: none;
+}
+
+.agree-box {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.agree-checkbox {
+  height: 2rem;
+}
+
+.agree-text {
+  font-size: 1.25rem;
 }

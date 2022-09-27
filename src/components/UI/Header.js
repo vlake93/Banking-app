@@ -1,6 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
 import User from "../../pages/User";
-import SignUp from "./SignUp";
+import SignUp from "./SignUpBox";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 

@@ -2,7 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import User from "./pages/User";
 import Admin from "./pages/Admin";
-import SignUpModal from "./pages/SignUpModal";
+import SignUpModal from "./pages/SignUpForm";
 import "./App.css";
 
 function App() {
