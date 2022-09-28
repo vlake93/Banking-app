@@ -18,8 +18,8 @@ function Header() {
         <Link to="/admin" className="header-link" href="#none">
           Corporate
         </Link>
-        <Link to="/signup" className="header-link" href="#none">
-          Sign up
+        <Link to="/user" className="header-link" href="#none">
+          Log In
         </Link>
       </div>
     </div>

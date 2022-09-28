@@ -3,19 +3,17 @@ import Hero from "../components/UI//Hero";
 import SignUpBox from "../components/UI/SignUpBox";
 import Download from "../components/UI//Download";
 import Footer from "../components/UI//Footer";
-import Login from "../components/User UI/Login";
 import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home">
       <Header></Header>
       <Hero>
         <div className="flex-box">
           <SignUpBox></SignUpBox>
           <Download></Download>
         </div>
-        <Login></Login>
       </Hero>
       <Footer></Footer>
     </div>
