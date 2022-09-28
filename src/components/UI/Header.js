@@ -1,6 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
-import User from "../../pages/User";
-import SignUp from "./SignUpBox";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 
@@ -17,11 +15,11 @@ function Header() {
         <Link className="header-link" href="#none">
           Contact us
         </Link>
-        <Link className="header-link" href="#none">
+        <Link to="/admin" className="header-link" href="#none">
           Corporate
         </Link>
-        <Link className="header-link" href="#none">
-          Login
+        <Link to="/signup" className="header-link" href="#none">
+          Sign up
         </Link>
       </div>
     </div>

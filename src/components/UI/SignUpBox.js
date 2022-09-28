@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./SignUpBox.css";
 
-function SignUp() {
+function SignUpBox() {
   return (
     <div className="signup">
       <div className="signup-text">
@@ -17,4 +17,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUpBox;
