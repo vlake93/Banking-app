@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #777;
+  background: url(../../assets/corporateBG.jpg) fixed center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   color: white;
   text-transform: uppercase;
