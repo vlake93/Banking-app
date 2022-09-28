@@ -15,7 +15,7 @@ function Header() {
         <Link className="header-link" href="#none">
           Contact us
         </Link>
-        <Link className="header-link" href="#none">
+        <Link to="/admin" className="header-link" href="#none">
           Corporate
         </Link>
         <Link to="/signup" className="header-link" href="#none">

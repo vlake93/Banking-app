@@ -3,6 +3,10 @@ import "./SignUpForm.css";
 import signUpLogo from "../assets/logo.png";
 
 function SignUpModal() {
+  const signUp = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="sign-up-modal">
       <form className="sign-up-form" method="GET">
@@ -24,9 +28,11 @@ function SignUpModal() {
           <input className="sign-up-input" type="password" />
           <div className="agree-box">
             <input className="agree-checkbox" type="checkbox" />
-            <p className="agree-text">I Agree to ViCash terms and conditions</p>
+            <p className="agree-text">
+              I have read and agree to ViCash terms and conditions
+            </p>
           </div>
-          <button className="sign-up-button" type="submit">
+          <button onClick={signUp} className="sign-up-button" type="submit">
             Sign-up
           </button>
         </div>
