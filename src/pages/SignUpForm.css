@@ -21,8 +21,8 @@ h1 {
 
 .sign-up-form {
   background-color: #777;
-  height: 60rem;
-  width: 60rem;
+  height: 65rem;
+  width: 65rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -55,11 +55,13 @@ h1 {
 }
 
 .sign-up-input {
-  font-size: 2.25rem;
+  font-size: 2rem;
   border-radius: 0.5rem;
   width: 40rem;
   outline: none;
   border: none;
+  padding: 1rem;
+  margin: 0.7rem 0;
 }
 
 .sign-up-button {
