@@ -36,11 +36,11 @@ const Admin = () => {
   return (
     <div className="admin">
       {admin.username !== "" ? (
-        <div>
+        <div className="adminDashboard">
           <h1>
             Welcome <span>{admins.username}</span>
           </h1>
-          <button onClick={corporateLogout}>Logout</button>
+          <button onClick={corporateLogout} className="logoutButton">Logout</button>
           <Functions></Functions>
         </div>
       ) : (
