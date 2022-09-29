@@ -36,13 +36,13 @@ const User = () => {
     <div className="user">
       {user.username !== "" ? (
         <div>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <button onClick={userLogout}>Logout</button>
+          <div>
+            <header className="user-header">
+              <h1>Hello, {user.username}</h1>
+              <button onClick={userLogout}>Logout</button>
+            </header>
+            <main></main>
+          </div>
         </div>
       ) : (
         <UserLogin Login={userLogin} error={error}></UserLogin>
