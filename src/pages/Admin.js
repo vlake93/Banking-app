@@ -33,13 +33,18 @@ const Admin = () => {
     setAdmin({ username: "", password: "" });
   };
 
+  const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
+
   return (
     <div className="admin">
       {admin.username !== "" ? (
-        <div className="adminDashboard">
+        <div className="admin-dashboard">
+          <div className="admin-header">
+          <h3>{date}</h3>
           <h1>
             Welcome <span>{admins.username}</span>
           </h1>
+          </div>
           <button onClick={corporateLogout} className="logoutButton">Logout</button>
           <Functions></Functions>
         </div>
