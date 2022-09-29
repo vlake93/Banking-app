@@ -1,11 +1,12 @@
 .functions {
-    border: 1px solid lightgray;
-    box-shadow: 10px 15px 20px lightgray;
+    border: none;
+    box-shadow: 10px 10px 10px gray;
     width: 60%;
     border-radius: 15px;   
     margin-left: auto;
     margin-right: auto;
     margin-top: 7rem;
+    background-color: rgb(211, 211, 211);
 }
 
 .functions > ul {
@@ -24,10 +25,17 @@
 
 .functions > ul > li > button {
     padding: 1rem;
-    font-size: 3rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.functions > ul > li > button > img {
+    width: 8vh;
+    height: 8vh;
 }
 
 .functions > ul > li > p {
     font-size: 2rem;
-    padding: 2rem 2rem 0.5rem;
+    padding: 0.7rem 2rem 0.5rem;
 }
