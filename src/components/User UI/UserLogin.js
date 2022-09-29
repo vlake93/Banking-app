@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./UserLogin.css";
 
 const UserLogin = ({ Login, error }) => {
@@ -11,7 +12,10 @@ const UserLogin = ({ Login, error }) => {
 
   return (
     <div className="login-container">
-      <form onSubmit={handleLogin} className="login">
+      <form onSubmit={handleLogin} className="login-form">
+        <Link to="/" className="user-login-close">
+          X
+        </Link>
         <h1 className="login-header">LOG-IN</h1>
         {error !== "" ? <div className="user-error">{error}</div> : ""}
         <label type="text" className="login-label">
@@ -21,6 +25,7 @@ const UserLogin = ({ Login, error }) => {
             username="username"
             className="login-input"
             id="user-username"
+            required
             onChange={(e) => {
               setDetails({ ...details, username: e.target.value });
             }}

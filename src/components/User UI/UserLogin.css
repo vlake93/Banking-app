@@ -3,12 +3,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #777;
+  background-image: url(../../assets/userloginBG.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.login {
+.login-form {
+  margin-top: 40rem;
   position: relative;
-  height: 30rem;
+  height: 40rem;
   width: 40rem;
   background-color: brown;
   border-radius: 2rem;
@@ -16,8 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  align-self: flex-start;
+  gap: 3rem;
   margin-top: 6rem;
   color: white;
 }
@@ -57,5 +59,14 @@
 
 .user-error {
   position: absolute;
-  top: 8rem;
+  top: 11rem;
+}
+
+.user-login-close {
+  font-size: 2rem;
+  text-decoration: none;
+  color: white;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
 }

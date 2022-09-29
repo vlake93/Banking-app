@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./User.css";
 import UserLogin from "../components/User UI/UserLogin";
+import logo from "../assets/logo.png";
+import UserMain from "../components/User UI/UserMain";
 
 const User = () => {
   let users = {
@@ -36,13 +38,14 @@ const User = () => {
     <div className="user">
       {user.username !== "" ? (
         <div>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <h1>hey</h1>
-          <button onClick={userLogout}>Logout</button>
+          <header className="user-header">
+            <h1 className="user-text">Hello, {users.username}</h1>
+            <img className="user-logo" src={logo} alt="logo" />
+            <button type="button" onClick={userLogout} className="user-logout">
+              Logout
+            </button>
+          </header>
+          <UserMain></UserMain>
         </div>
       ) : (
         <UserLogin Login={userLogin} error={error}></UserLogin>
