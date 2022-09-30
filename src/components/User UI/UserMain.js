@@ -1,8 +1,9 @@
+import React, { useState, useEffect } from "react";
 import "./UserMain.css";
+import UserBudget from "../User UI/UserBudget";
+const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
 
 function UserMain() {
-  const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
-
   return (
     <main className="user-main">
       <div className="user-current-balance">
@@ -50,6 +51,7 @@ function UserMain() {
           </div>
         </div>
       </div>
+      <UserBudget></UserBudget>
     </main>
   );
 }
