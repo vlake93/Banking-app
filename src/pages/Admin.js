@@ -18,11 +18,11 @@ const Admin = () => {
       details.username === admins.username &&
       details.password === admins.password
     ) {
-      console.log("Logged in");
       setAdmin({
         name: details.username,
         password: details.password,
       });
+      localStorage.setItem("localAdmin", JSON.stringify(admin));
     } else {
       console.log("Username/Password doesn't match");
       setError("Username/Password doesn't match");
@@ -31,6 +31,7 @@ const Admin = () => {
 
   const corporateLogout = () => {
     setAdmin({ username: "", password: "" });
+    localStorage.setItem("localAdmin", JSON.stringify(admin));
   };
 
   const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
@@ -40,12 +41,14 @@ const Admin = () => {
       {admin.username !== "" ? (
         <div className="admin-dashboard">
           <div className="admin-header">
-          <h3>{date}</h3>
-          <h1>
-            Welcome <span>{admins.username}</span>
-          </h1>
+            <h3>{date}</h3>
+            <h1>
+              Welcome <span>{admins.username}</span>
+            </h1>
           </div>
-          <button onClick={corporateLogout} className="logoutButton">Logout</button>
+          <button onClick={corporateLogout} className="logoutButton">
+            Logout
+          </button>
           <Functions></Functions>
         </div>
       ) : (

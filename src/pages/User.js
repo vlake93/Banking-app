@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./User.css";
 import UserLogin from "../components/User UI/UserLogin";
 import logo from "../assets/logo.png";
@@ -25,7 +25,7 @@ const User = () => {
         name: details.username,
         password: details.password,
       });
-      // localStorage.setItem("localUsers", JSON.stringify(user));
+      localStorage.setItem("localUsers", JSON.stringify(user));
     } else {
       console.log("Username/Password doesn't match");
       setError("Username/Password doesn't match");
@@ -34,14 +34,14 @@ const User = () => {
 
   const userLogout = () => {
     setUser({ username: "", password: "" });
-    // localStorage.removeItem("localUsers");
+    localStorage.removeItem("localUsers");
+    localStorage.setItem("localUsers", JSON.stringify(user));
   };
-  // const userLog = JSON.parse(localStorage.getItem("localUsers"));
 
   return (
     <div className="user">
       {user.username !== "" ? (
-        <div>
+        <>
           <header className="user-header">
             <h1 className="user-text">Hello, {users.username}</h1>
             <img className="user-logo" src={logo} alt="logo" />
@@ -52,7 +52,7 @@ const User = () => {
           <div className="user-main">
             <UserBudget></UserBudget>
           </div>
-        </div>
+        </>
       ) : (
         <UserLogin Login={userLogin} error={error}></UserLogin>
       )}
