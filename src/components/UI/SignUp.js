@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import "./SignUpBox.css";
+import "./SignUp.css";
 
-function SignUpBox() {
+function SignUp() {
   return (
     <div className="signup">
       <div className="signup-text">
@@ -9,12 +8,10 @@ function SignUpBox() {
         <p>*Limited to first 100 customers</p>
       </div>
       <div className="signup-button">
-        <Link className="signup-link" to="/signup">
-          Sign up
-        </Link>
+        <button>Sign up</button>
       </div>
     </div>
   );
 }
 
-export default SignUpBox;
+export default SignUp;

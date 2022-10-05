@@ -5,9 +5,7 @@
   width: 100vw;
   top: 0;
   left: 0;
-  background: url(../assets/signupBG.jpg) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 h1 {
@@ -21,8 +19,8 @@ h1 {
 
 .sign-up-form {
   background-color: #777;
-  height: 65rem;
-  width: 65rem;
+  height: 50rem;
+  width: 60rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -55,25 +53,17 @@ h1 {
 }
 
 .sign-up-input {
-  font-size: 2rem;
+  font-size: 2.25rem;
   border-radius: 0.5rem;
   width: 40rem;
-  outline: none;
-  border: none;
-  padding: 1rem;
-  margin: 0.7rem 0;
 }
 
 .sign-up-button {
   margin-top: 2rem;
-  width: 12rem;
+  width: 10rem;
   height: 5rem;
   border-radius: 0.5rem;
   font-size: 2.25rem;
-  background-color: brown;
-  border: none;
-  color: white;
-  cursor: pointer;
 }
 
 .close {
@@ -85,21 +75,4 @@ h1 {
   top: 0.5rem;
   right: 2.5rem;
   cursor: pointer;
-  text-decoration: none;
-}
-
-.agree-box {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.agree-checkbox {
-  height: 2rem;
-}
-
-.agree-text {
-  font-size: 1.25rem;
 }

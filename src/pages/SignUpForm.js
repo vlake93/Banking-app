@@ -1,8 +1,66 @@
 import { Link } from "react-router-dom";
 import "./SignUpForm.css";
 import signUpLogo from "../assets/logo.png";
+import { useState } from "react";
 
 function SignUpModal() {
+  let users = [
+    {
+      email: "test@test.com",
+      username: "vic",
+      password: "user",
+      balance: 1000,
+    },
+    {
+      email: "test@test.com",
+      username: "shai",
+      password: "user",
+      balance: 0,
+    },
+  ];
+
+  if (localStorage.getItem("localRegisteredUsers") === null || undefined) {
+    localStorage.setItem("localRegisteredUsers", JSON.stringify(users));
+  }
+
+  const [newUser, setNewUser] = useState({
+    email: "",
+    username: "",
+    password: "",
+    balance: 0,
+  });
+
+  const signedUpUsers = JSON.parse(
+    localStorage.getItem("localRegisteredUsers")
+  );
+
+  const handleEmail = (e) => {
+    setNewUser({ ...newUser, email: e.target.value });
+  };
+
+  const handleUsername = (e) => {
+    setNewUser({ ...newUser, username: e.target.value });
+  };
+
+  const handlePassword = (e) => {
+    setNewUser({ ...newUser, password: e.target.value });
+  };
+
+  const handleBalance = (e) => {
+    setNewUser({ ...newUser, balance: e.target.value });
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    localStorage.setItem(
+      "localRegisteredUsers",
+      JSON.stringify([...signedUpUsers, newUser])
+    );
+    // localStorage.setItem(`${newUser.username}localExpenses`);
+  };
+
+  // localStorage.setItem("sample", JSON.stringify(newUser));
+
   return (
     <div className="sign-up-modal">
       <form className="sign-up-form" method="GET">
@@ -14,19 +72,49 @@ function SignUpModal() {
             x
           </Link>
           <h1>Sign up</h1>
-          <label className="sign-up-label">Name</label>
-          <input className="sign-up-input" type="text" />
           <label className="sign-up-label">Email</label>
-          <input className="sign-up-input" type="email" />
+          <input
+            onChange={handleEmail}
+            value={newUser.email}
+            className="sign-up-input"
+            type="email"
+            placeholder="Email"
+          />
           <label className="sign-up-label">Username</label>
-          <input className="sign-up-input" type="text" />
+          <input
+            onChange={handleUsername}
+            value={newUser.username}
+            className="sign-up-input"
+            type="text"
+            placeholder="Username"
+          />
           <label className="sign-up-label">Password</label>
-          <input className="sign-up-input" type="password" />
+          <input
+            onChange={handlePassword}
+            value={newUser.passoword}
+            className="sign-up-input"
+            type="password"
+            placeholder="Password"
+          />
+          <label className="sign-up-label">Balance</label>
+          <input
+            onChange={handleBalance}
+            value={newUser.balance}
+            className="sign-up-input"
+            type="number"
+            placeholder="Initial Balance"
+          />
           <div className="agree-box">
-            <input className="agree-checkbox" type="checkbox" />
-            <p className="agree-text">I Agree to ViCash terms and conditions</p>
+            <input className="agree-checkbox" type="checkbox" required />
+            <p className="agree-text">
+              I have read and agree to ViCash terms and conditions
+            </p>
           </div>
-          <button className="sign-up-button" type="submit">
+          <button
+            onClick={handleSignup}
+            className="sign-up-button"
+            type="submit"
+          >
             Sign-up
           </button>
         </div>
