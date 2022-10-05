@@ -50,14 +50,26 @@
   background-color: brown;
   font-size: 2rem;
   color: white;
+<<<<<<< HEAD
+=======
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+>>>>>>> 9ea5bd0fb403f1110f4102741dc664648054fe5c
 }
 
 .user-expense-container,
 .user-expense-header {
   display: flex;
+<<<<<<< HEAD
   justify-content: center;
   align-items: center;
   gap: 20rem;
+=======
+  justify-content: space-between;
+  align-items: center;
+>>>>>>> 9ea5bd0fb403f1110f4102741dc664648054fe5c
   background-color: white;
   width: 60rem;
 }
@@ -84,3 +96,21 @@
   width: 62rem;
   border-radius: 1rem;
 }
+<<<<<<< HEAD
+=======
+
+.user-expense-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.user-expense-buttons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.user-expense-buttons img {
+  height: 2rem;
+}
+>>>>>>> 9ea5bd0fb403f1110f4102741dc664648054fe5c
