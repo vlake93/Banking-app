@@ -1,0 +1,88 @@
+.admin::before {
+  position: relative;
+}
+
+.admin::after {
+  content: "";
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/hero-bg.jpg);
+  background-size: contain;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.admin-header-greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: brown;
+  width: 100%;
+  color: white;
+}
+
+.admin-header > h3 {
+  padding: 1rem 1rem 0;
+}
+
+.admin-header > h1 {
+  text-align: left;
+  padding: 1rem 1rem 0;
+  text-transform: uppercase;
+}
+
+.logoutButton {
+  font-size: 2rem;
+  border-radius: 8px;
+  border: none;
+  color: brown;
+  background-color: white;
+  width: 8rem;
+  height: 4rem;
+  cursor: pointer;
+}
+
+.admin-users-view-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7.5rem;
+}
+
+.admin-users-view {
+  height: 80rem;
+  width: 100rem;
+  background-color: brown;
+  border-radius: 2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.admin-user-list {
+  padding: 1rem 1.5rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(163, 71, 71);
+}
+
+.admin-user-list p {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: white;
+}

@@ -1,0 +1,104 @@
+.user-budget-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.user-budget-ui {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.user-budget {
+  height: 20rem;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: brown;
+  border-radius: 1rem;
+  color: white;
+  text-transform: uppercase;
+}
+
+.user-budget label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30rem;
+}
+
+.user-input {
+  margin-left: 2rem;
+}
+
+.user-input-button {
+  height: 3rem;
+  width: 8rem;
+}
+
+.user-budget-balance {
+  padding: 2rem;
+  height: 48rem;
+  width: 35rem;
+  border-radius: 1rem;
+  background-color: brown;
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.user-expense-container,
+.user-expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 60rem;
+}
+
+.user-expense-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-expense-header {
+  font-size: 1.75rem;
+}
+
+.user-expense-main {
+  gap: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: brown;
+  height: 70rem;
+  width: 62rem;
+  border-radius: 1rem;
+}
+
+.user-expense-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.user-expense-buttons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.user-expense-buttons img {
+  height: 2rem;
+}
