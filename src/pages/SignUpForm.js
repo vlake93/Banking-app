@@ -4,6 +4,30 @@ import signUpLogo from "../assets/logo.png";
 import { useState } from "react";
 
 function SignUpModal() {
+
+  const signUp = (e) => {
+    e.preventDefault();
+  };
+
+  let users = [
+    {
+      email: "test@test.com",
+      username: "vic",
+      password: "user",
+      balance: 1000,
+    },
+    {
+      email: "test@test.com",
+      username: "shai",
+      password: "user",
+      balance: 0,
+    },
+  ];
+
+  if (localStorage.getItem("localRegisteredUsers") === null || undefined) {
+    localStorage.setItem("localRegisteredUsers", JSON.stringify(users));
+  }
+  
   const [newUser, setNewUser] = useState({
     email: "",
     username: "",
@@ -56,6 +80,8 @@ function SignUpModal() {
     });
   };
 
+  // localStorage.setItem("sample", JSON.stringify(newUser));
+
   return (
     <div className="sign-up-modal">
       <form className="sign-up-form" method="GET">
@@ -105,17 +131,18 @@ function SignUpModal() {
             required
           />
           <div className="agree-box">
+
             <input className="agree-checkbox" type="checkbox" required />
+
             <p className="agree-text">
               I have read and agree to ViCash terms and conditions
             </p>
           </div>
-          <Link
-            to="/registered"
+          <button
             onClick={handleSignup}
             className="sign-up-button"
             type="submit"
-          >
+          />
             Sign-up
           </Link>
         </div>

@@ -4,6 +4,12 @@ import Functions from "../components/Bank/Functions";
 import Corporate from "../components/Admin UI/Corporate";
 
 const Admin = () => {
+<<<<<<< HEAD
+  let admins = {
+    username: "vic",
+    password: "admin",
+  };
+=======
   let admins = [
     {
       username: "vic",
@@ -11,11 +17,28 @@ const Admin = () => {
     },
     { username: "shai", password: "admin" },
   ];
+>>>>>>> 9ea5bd0fb403f1110f4102741dc664648054fe5c
 
   const [admin, setAdmin] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
 
   const corporateLogin = (details) => {
+<<<<<<< HEAD
+    console.log(details);
+    if (
+      details.username === admins.username &&
+      details.password === admins.password
+    ) {
+      console.log("Logged in");
+      setAdmin({
+        name: details.username,
+        password: details.password,
+      });
+    } else {
+      console.log("Username/Password doesn't match");
+      setError("Username/Password doesn't match");
+    }
+=======
     admins.map((adminmap) => {
       if (
         details.username === adminmap.username &&
@@ -29,6 +52,7 @@ const Admin = () => {
         setError("Username/Password doesn't match");
       }
     });
+>>>>>>> 9ea5bd0fb403f1110f4102741dc664648054fe5c
   };
 
   const corporateLogout = () => {
@@ -36,10 +60,13 @@ const Admin = () => {
     setError("");
   };
 
+<<<<<<< HEAD
+=======
   const signedUpUsers = JSON.parse(
     localStorage.getItem("localRegisteredUsers")
   );
 
+>>>>>>> 9ea5bd0fb403f1110f4102741dc664648054fe5c
   const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
 
   return (
@@ -47,6 +74,15 @@ const Admin = () => {
       {admin.username !== "" ? (
         <div className="admin-dashboard">
           <div className="admin-header">
+<<<<<<< HEAD
+          <h3>{date}</h3>
+          <h1>
+            Welcome <span>{admins.username}</span>
+          </h1>
+          </div>
+          <button onClick={corporateLogout} className="logoutButton">Logout</button>
+          <Functions></Functions>
+=======
             <div className="admin-header-greeting">
               <h3>{date}</h3>
               <h1>
@@ -82,6 +118,7 @@ const Admin = () => {
             </div>
           </div>
           {/* <Functions></Functions> */}
+>>>>>>> 9ea5bd0fb403f1110f4102741dc664648054fe5c
         </div>
       ) : (
         <Corporate Login={corporateLogin} error={error}></Corporate>

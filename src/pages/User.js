@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./User.css";
 import UserLogin from "../components/User UI/UserLogin";
 import logo from "../assets/logo.png";
+
 import UserBudget from "../components/User UI/UserBudget";
 
 const User = () => {
@@ -13,6 +14,7 @@ const User = () => {
   const [error, setError] = useState("");
 
   const userLogin = (details) => {
+
     RegisteredUsers.map((usermap) => {
       if (
         details.username === usermap.username &&
@@ -32,7 +34,12 @@ const User = () => {
 
   const userLogout = () => {
     setUser({ username: "", password: "" });
+
     setError("");
+    // localStorage.removeItem("localUsers");
+  };
+  // const userLog = JSON.parse(localStorage.getItem("localUsers"));
+
   };
 
   localStorage.setItem("loggedInUser", JSON.stringify(user));
@@ -54,7 +61,7 @@ const User = () => {
                 );
               }
             })}
-
+            
             <img className="user-logo" src={logo} alt="logo" />
             <button type="button" onClick={userLogout} className="user-logout">
               Logout
