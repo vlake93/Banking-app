@@ -74,6 +74,11 @@ h1 {
   border: none;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
 }
 
 .close {

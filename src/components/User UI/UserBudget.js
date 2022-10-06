@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./UserBudget.css";
 import pencil from "../../assets/pencil.png";
 import trash from "../../assets/trash.png";
+import check from "../../assets/check.png";
 
 function UserBudget() {
   const [expense, setExpense] = useState("");
   const [particular, setParticular] = useState("");
   const [expenses, setExpenses] = useState([]);
+  const [editing, setEditing] = useState(-1);
+  const [editAmount, setEditAmount] = useState("");
+  const [editTitle, setEditTitle] = useState("");
 
   const loggedIn = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -45,16 +49,33 @@ function UserBudget() {
     );
   };
 
-  const handleEdit = () => {};
+  const handleEdit = (expense, updatedExpense) => {
+    setEditing(expense.id);
+    setEditAmount(updatedExpense);
+  };
+
+  const expenseList = JSON.parse(
+    localStorage.getItem(`${loggedIn.username}localExpenses`) || 1
+  );
+
+  const handleUpdate = (expense) => {
+    const updatedList = expenseList.map((xpn) => {
+      if (xpn.id === expense.id) {
+        return { ...xpn, amount: xpn.amount, title: xpn.title };
+      }
+      return xpn;
+    });
+    setExpenses(updatedList);
+    setEditing(-1);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(expense, particular);
   };
 
-  const loggedInExpenses = JSON.parse(
-    localStorage.getItem(`${loggedIn.username}localExpenses`) || [0]
-  );
+  const loggedInExpenses =
+    JSON.parse(localStorage.getItem(`${loggedIn.username}localExpenses`)) || [];
 
   const expenseTotal = loggedInExpenses.reduce((accumulator, expense) => {
     return parseInt(accumulator) + parseInt(expense.amount);
@@ -117,15 +138,45 @@ function UserBudget() {
         {expenses.map((expense) => (
           <React.Fragment key={expense.id}>
             <div className="user-expense-container">
-              <h2 className="user-expense-amount">₱{expense.amount}.00</h2>
-              <h2 className="user-expense-amount">{expense.title}</h2>
+              <h2 className="user-expense-amount">
+                {editing === expense.id ? (
+                  <input
+                    type="number"
+                    defaultValue={expense.amount}
+                    value={editAmount}
+                    onChange={(e) => setEditAmount(e.target.value)}
+                  />
+                ) : (
+                  <span>₱{expense.amount}.00</span>
+                )}
+              </h2>
+              <h2 className="user-expense-amount">
+                {editing === expense.id ? (
+                  <input
+                    type="text"
+                    defaultValue={expense.title}
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                  />
+                ) : (
+                  <span>{expense.title}</span>
+                )}
+              </h2>
               <div className="user-expense-delete-container">
                 <div className="user-expense-buttons">
                   <button
                     className="user-expense-edit"
-                    onClick={() => handleEdit()}
+                    onClick={() => handleEdit(expense.id, expense.title)}
                   >
-                    <img src={pencil} alt="pencil logo" />
+                    {editing === expense.id ? (
+                      <img
+                        src={check}
+                        alt="check logo"
+                        onClick={handleUpdate(expense.id)}
+                      />
+                    ) : (
+                      <img src={pencil} alt="pencil logo" />
+                    )}
                   </button>
                   <button
                     className="user-expense-delete"

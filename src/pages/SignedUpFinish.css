@@ -1,0 +1,54 @@
+.registered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  background: url(../assets/registeredBG.jpg) fixed center;
+  background-size: cover;
+}
+
+.registered-container {
+  padding: 4rem 0;
+  position: relative;
+  height: 40rem;
+  width: 60rem;
+  background-color: brown;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.registered-close {
+  font-size: 2rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: white;
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+}
+
+.registered-login {
+  font-size: 2rem;
+  background-color: white;
+  height: 4rem;
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: brown;
+}
+
+.registered-img {
+  height: 15rem;
+}

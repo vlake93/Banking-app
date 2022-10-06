@@ -32,6 +32,7 @@ const User = () => {
 
   const userLogout = () => {
     setUser({ username: "", password: "" });
+    setError("");
   };
 
   localStorage.setItem("loggedInUser", JSON.stringify(user));
