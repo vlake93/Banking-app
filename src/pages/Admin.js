@@ -40,18 +40,43 @@ const Admin = () => {
   const signedUpUsers = JSON.parse(
     localStorage.getItem("localRegisteredUsers")
   );
+  const [users, setUsers] = useState(signedUpUsers);
 
   const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
 
-  const adminWithdraw = (e) => {
-    setBalance(parseInt(balance) - e.target.value);
+  const adminWithdraw = (username) => {
+    const updatedUsers = users.map((user) => {
+      if (user.username === username) {
+        return {
+          ...user,
+          balance: user.balance - balance,
+        };
+      }
+
+      return user;
+    });
+    setUsers(updatedUsers);
+    localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
   };
 
-  const adminDeposit = (e) => {
-    parseInt(setBalance(balance + e.target.value));
+  const adminDeposit = (username) => {
+    const updatedUsers = users.map((user) => {
+      if (user.username === username) {
+        return {
+          ...user,
+          balance: parseInt(user.balance) + parseInt(balance),
+        };
+      }
+
+      return user;
+    });
+    setUsers(updatedUsers);
+    localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
   };
 
-  const updatedBalance = () => {};
+  const updatedBalance = (value) => {
+    setBalance(value);
+  };
 
   return (
     <div className="admin">
@@ -72,7 +97,7 @@ const Admin = () => {
             <div className="admin-users-view">
               <div className="users-view-header"></div>
               <ul>
-                {signedUpUsers.map((user) => {
+                {users.map((user) => {
                   return (
                     <li className="admin-user-list">
                       <p>{user.username}</p>
@@ -81,8 +106,21 @@ const Admin = () => {
                         value={balance}
                         onChange={(e) => updatedBalance(e.target.value)}
                       />
-                      <button onClick={adminWithdraw}>Withdraw</button>
-                      <button onClick={adminDeposit}>Deposit</button>
+
+                      <button
+                        onClick={() => {
+                          adminWithdraw(user.username);
+                        }}
+                      >
+                        Withdraw
+                      </button>
+                      <button
+                        onClick={() => {
+                          adminDeposit(user.username);
+                        }}
+                      >
+                        Deposit
+                      </button>
                       <button>Transfer</button>
                     </li>
                   );
