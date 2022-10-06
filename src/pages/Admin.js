@@ -44,13 +44,11 @@ const Admin = () => {
         details.username === adminmap.username &&
         details.password === adminmap.password
       ) {
-        console.log("Logged in");
         setAdmin({
           name: details.username,
           password: details.password,
         });
       } else {
-        console.log("Username/Password doesn't match");
         setError("Username/Password doesn't match");
       }
     });
@@ -59,6 +57,7 @@ const Admin = () => {
 
   const corporateLogout = () => {
     setAdmin({ username: "", password: "" });
+    setError("");
   };
 
 <<<<<<< HEAD
