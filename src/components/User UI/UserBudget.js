@@ -163,6 +163,7 @@ function UserBudget() {
                 )}
               </h2>
               <div className="user-expense-delete-container">
+
                 <div className="user-expense-buttons">
                   <button
                     className="user-expense-edit"
