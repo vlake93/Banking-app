@@ -86,9 +86,7 @@ const Admin = () => {
           <div className="admin-header">
             <div className="admin-header-greeting">
               <h3>{date}</h3>
-              <h1>
-                Welcome <span>{admins.username}</span>
-              </h1>
+              <h1>Welcome <span>{admins.username}</span></h1>
             </div>
             <button onClick={corporateLogout} className="logoutButton">
               Logout
@@ -96,7 +94,10 @@ const Admin = () => {
           </div>
           <div className="admin-users-view-container">
             <div className="admin-users-view">
-              <div className="users-view-header"></div>
+              <div className="users-view-header">
+                <h2>User</h2>
+                <h2>Balance</h2> 
+              </div>
               <ul>
                 {users.map((user) => {
                   return (
@@ -104,16 +105,22 @@ const Admin = () => {
                       <p>{user.username}</p>
                       <p>{user.balance}</p>
                       <input 
+                        className="admin-input"
                         value={balance}
                         onChange={(e) => updatedBalance(e.target.value)}
                       />
-                      <button onClick={() => {adminWithdraw(user.username)}}>
+                      <button 
+                        className="admin-function-button" 
+                        onClick={() => {adminWithdraw(user.username)}}>
                         Withdraw
                       </button>
-                      <button onClick={() => {adminDeposit(user.username)}}>
+                      <button 
+                        className="admin-function-button" 
+                        onClick={() => {adminDeposit(user.username)}}>
                         Deposit
                       </button>
-                      <button>
+                      <button
+                        class="admin-function-button">
                         Transfer
                       </button>
 
