@@ -4,14 +4,11 @@ import signUpLogo from "../assets/logo.png";
 import { useState } from "react";
 
 function SignUpModal() {
-<<<<<<< HEAD
-=======
 
   const signUp = (e) => {
     e.preventDefault();
   };
 
->>>>>>> e69ea41703d641ec709db16473dae71706428b94
   let users = [
     {
       email: "test@test.com",
@@ -134,28 +131,21 @@ function SignUpModal() {
             required
           />
           <div className="agree-box">
-<<<<<<< HEAD
-            <input className="agree-checkbox" type="checkbox" required />
-=======
 
             <input className="agree-checkbox" type="checkbox" required />
 
->>>>>>> e69ea41703d641ec709db16473dae71706428b94
             <p className="agree-text">
               I have read and agree to ViCash terms and conditions
             </p>
           </div>
-          <button
+          <Link
+            to="/registered"
             onClick={handleSignup}
             className="sign-up-button"
             type="submit"
-<<<<<<< HEAD
           >
-=======
-          />
->>>>>>> e69ea41703d641ec709db16473dae71706428b94
             Sign-up
-          </Link>
+          </Link >
         </div>
       </form>
     </div>

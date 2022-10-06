@@ -36,9 +36,6 @@ const User = () => {
     setError("");
     // localStorage.removeItem("localUsers");
   };
-  // const userLog = JSON.parse(localStorage.getItem("localUsers"));
-
-  };
 
   localStorage.setItem("loggedInUser", JSON.stringify(user));
 

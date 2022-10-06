@@ -77,12 +77,6 @@ function UserBudget() {
   const loggedInExpenses =
     JSON.parse(localStorage.getItem(`${loggedIn.username}localExpenses`)) || [];
 
-  const handleDelete = (expense) => {
-    const deleted = expenses.filter((t) => t.id !== expense.id);
-    setExpenses(deleted);
-    localStorage.setItem("localExpenses", JSON.stringify(deleted));
-  };
-
   const expenseTotal = loggedInExpenses.reduce((accumulator, expense) => {
     return parseInt(accumulator) + parseInt(expense.amount);
   }, 0);

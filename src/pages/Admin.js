@@ -90,6 +90,10 @@ const Admin = () => {
                       <button onClick={adminDeposit}>
                         Deposit
                       </button>
+                      <button>
+                        Transfer
+                      </button>
+
                     </li>
                   );
                 })}
