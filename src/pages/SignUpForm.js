@@ -4,6 +4,14 @@ import signUpLogo from "../assets/logo.png";
 import { useState } from "react";
 
 function SignUpModal() {
+<<<<<<< HEAD
+=======
+
+  const signUp = (e) => {
+    e.preventDefault();
+  };
+
+>>>>>>> e69ea41703d641ec709db16473dae71706428b94
   let users = [
     {
       email: "test@test.com",
@@ -22,13 +30,14 @@ function SignUpModal() {
   if (localStorage.getItem("localRegisteredUsers") === null || undefined) {
     localStorage.setItem("localRegisteredUsers", JSON.stringify(users));
   }
-
+  
   const [newUser, setNewUser] = useState({
     email: "",
     username: "",
     password: "",
     balance: 0,
   });
+  const [error, setError] = useState("");
 
   const signedUpUsers = JSON.parse(
     localStorage.getItem("localRegisteredUsers")
@@ -51,12 +60,27 @@ function SignUpModal() {
   };
 
   const handleSignup = (e) => {
-    e.preventDefault();
-    localStorage.setItem(
-      "localRegisteredUsers",
-      JSON.stringify([...signedUpUsers, newUser])
-    );
-    // localStorage.setItem(`${newUser.username}localExpenses`);
+    signedUpUsers.map((user) => {
+      if (
+        newUser.email !== "" &&
+        newUser.username !== "" &&
+        newUser.password !== "" &&
+        newUser.balance !== ""
+      ) {
+        if (
+          newUser.email !== user.email ||
+          newUser.username !== user.username
+        ) {
+          localStorage.setItem(
+            "localRegisteredUsers",
+            JSON.stringify([...signedUpUsers, newUser])
+          );
+        } else {
+          e.preventDefault();
+          setError("Username/Email already taken");
+        }
+      }
+    });
   };
 
   // localStorage.setItem("sample", JSON.stringify(newUser));
@@ -72,6 +96,7 @@ function SignUpModal() {
             x
           </Link>
           <h1>Sign up</h1>
+          <h2>{error}</h2>
           <label className="sign-up-label">Email</label>
           <input
             onChange={handleEmail}
@@ -79,6 +104,7 @@ function SignUpModal() {
             className="sign-up-input"
             type="email"
             placeholder="Email"
+            required
           />
           <label className="sign-up-label">Username</label>
           <input
@@ -87,14 +113,16 @@ function SignUpModal() {
             className="sign-up-input"
             type="text"
             placeholder="Username"
+            required
           />
           <label className="sign-up-label">Password</label>
           <input
             onChange={handlePassword}
-            value={newUser.passoword}
+            value={newUser.password}
             className="sign-up-input"
             type="password"
             placeholder="Password"
+            required
           />
           <label className="sign-up-label">Balance</label>
           <input
@@ -103,9 +131,16 @@ function SignUpModal() {
             className="sign-up-input"
             type="number"
             placeholder="Initial Balance"
+            required
           />
           <div className="agree-box">
+<<<<<<< HEAD
             <input className="agree-checkbox" type="checkbox" required />
+=======
+
+            <input className="agree-checkbox" type="checkbox" required />
+
+>>>>>>> e69ea41703d641ec709db16473dae71706428b94
             <p className="agree-text">
               I have read and agree to ViCash terms and conditions
             </p>
@@ -114,9 +149,13 @@ function SignUpModal() {
             onClick={handleSignup}
             className="sign-up-button"
             type="submit"
+<<<<<<< HEAD
           >
+=======
+          />
+>>>>>>> e69ea41703d641ec709db16473dae71706428b94
             Sign-up
-          </button>
+          </Link>
         </div>
       </form>
     </div>

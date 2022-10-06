@@ -9,9 +9,16 @@
   border-bottom: 5px solid brown;
 }
 
+.header-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .header-logo {
   height: 7rem;
   cursor: pointer;
+  margin-right: 3rem;
 }
 
 .header-links {
@@ -31,4 +38,8 @@
 .header-link:active,
 .header-link:hover {
   color: rgb(239, 72, 72);
+}
+
+.header-vicash {
+  height: 7rem;
 }
