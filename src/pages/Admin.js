@@ -14,6 +14,7 @@ const Admin = () => {
 
   const [admin, setAdmin] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
+  const [balance, setBalance] = useState("");
 
   const corporateLogin = (details) => {
     admins.map((adminmap) => {
@@ -41,21 +42,17 @@ const Admin = () => {
   );
 
   const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
-    
-  const [balance, setBalance] = useState(signedUpUsers.balance)
-  
+
   const adminWithdraw = (e) => {
-    parseInt(setBalance(balance - e.target.value))
-  }
+    setBalance(parseInt(balance) - e.target.value);
+  };
 
   const adminDeposit = (e) => {
-    parseInt(setBalance(balance + e.target.value))
-  }
+    parseInt(setBalance(balance + e.target.value));
+  };
 
-  const updatedBalance = () => {
-        
-  }
-  
+  const updatedBalance = () => {};
+
   return (
     <div className="admin">
       {admin.username !== "" ? (
@@ -80,20 +77,13 @@ const Admin = () => {
                     <li className="admin-user-list">
                       <p>{user.username}</p>
                       <p>{user.balance}</p>
-                      <input 
+                      <input
                         value={balance}
                         onChange={(e) => updatedBalance(e.target.value)}
                       />
-                      <button onClick={adminWithdraw}>
-                        Withdraw
-                      </button>
-                      <button onClick={adminDeposit}>
-                        Deposit
-                      </button>
-                      <button>
-                        Transfer
-                      </button>
-
+                      <button onClick={adminWithdraw}>Withdraw</button>
+                      <button onClick={adminDeposit}>Deposit</button>
+                      <button>Transfer</button>
                     </li>
                   );
                 })}

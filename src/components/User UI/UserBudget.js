@@ -54,9 +54,8 @@ function UserBudget() {
     setEditAmount(updatedExpense);
   };
 
-  const expenseList = JSON.parse(
-    localStorage.getItem(`${loggedIn.username}localExpenses`) || 1
-  );
+  const expenseList =
+    JSON.parse(localStorage.getItem(`${loggedIn.username}localExpenses`)) || [];
 
   const handleUpdate = (expense) => {
     const updatedList = expenseList.map((xpn) => {
@@ -141,7 +140,7 @@ function UserBudget() {
               <h2 className="user-expense-amount">
                 {editing === expense.id ? (
                   <input
-                    type="number"
+                    type="text"
                     defaultValue={expense.amount}
                     value={editAmount}
                     onChange={(e) => setEditAmount(e.target.value)}
@@ -166,13 +165,13 @@ function UserBudget() {
                 <div className="user-expense-buttons">
                   <button
                     className="user-expense-edit"
-                    onClick={() => handleEdit(expense.id, expense.title)}
+                    onClick={() => handleEdit(expense, expense.title)}
                   >
                     {editing === expense.id ? (
                       <img
                         src={check}
                         alt="check logo"
-                        onClick={handleUpdate(expense.id)}
+                        onClick={() => handleUpdate(expense.id)}
                       />
                     ) : (
                       <img src={pencil} alt="pencil logo" />
