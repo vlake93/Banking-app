@@ -42,7 +42,7 @@
 
 .admin-header > h1 {
   text-align: left;
-  padding: 1rem 1rem 0;
+  padding: 1rem 1.5rem;
   text-transform: uppercase;
 }
 
@@ -52,9 +52,16 @@
   border: none;
   color: brown;
   background-color: white;
-  width: 8rem;
-  height: 4rem;
+  width: 10rem;
+  height: 6rem;
+  padding: 1rem;
   cursor: pointer;
+}
+
+.logoutButton:hover {
+  background-color: brown;
+  color: white;
+  transition: all 0.5s;
 }
 
 .admin-users-view-container {
@@ -66,18 +73,29 @@
 
 .admin-users-view {
   height: 80rem;
-  width: 100rem;
+  width: 140rem;
   background-color: brown;
   border-radius: 2rem;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
+.users-view-header {
+  display: grid;
+  grid-template-columns: 15% 30.5% 30.55% 8% 8% 8%;
+  align-items: center;
+  justify-items: center;
+  color: white;
+  padding: 2rem;
+  font-size: 2.2rem;
+}
+
 .admin-user-list {
   padding: 1rem 1.5rem;
   list-style: none;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 15% 30.5% 30.55% 8% 8% 8%;
+  grid-auto-flow: column;
   background-color: rgb(163, 71, 71);
 }
 
@@ -85,4 +103,29 @@
   font-size: 2rem;
   text-transform: uppercase;
   color: white;
+  padding: 0.5rem;
+}
+
+.admin-input {
+  padding: 1rem;
+  margin: 0 0.3rem;
+  border-radius: 1rem;
+  border: none;
+  width: 80%;
+  cursor: pointer;
+}
+
+.admin-function-button {
+  margin: 0 0.5rem;
+  padding: 1rem;
+  border: none;
+  color: brown;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.admin-function-button:hover {
+  background-color: brown;
+  color: white;
+  transition: all 0.5s;
 }

@@ -52,41 +52,39 @@ function SignUpModal() {
   };
 
   const handleBalance = (e) => {
-    setNewUser({ ...newUser, balance: e.target.value });
-  };
-
-  const handleSignup = (e) => {
-    signedUpUsers.map((user) => {
-      if (newUser.username === user.username) {
-        e.preventDefault();
-        setError("Username already taken");
-      } else {
-        const user = signedUpUsers.find((user) => {
-          return user.username === newUser.username;
-        });
-        localStorage.setItem(
-          "localRegisteredUsers",
-          JSON.stringify([...signedUpUsers, newUser])
-        );
-      }
-    });
+    setNewUser({ ...newUser, balance: parseInt(e.target.value) });
   };
 
   // const handleSignup = (e) => {
-  //   const user = signedUpUsers.find((user) => {
-  //     return user.username === newUser.username;
+  //   signedUpUsers.map((user) => {
+  //     if (newUser.username === user.username) {
+  //       e.preventDefault();
+  //       setError("Username already taken");
+  //     } else {
+  //       localStorage.setItem(
+  //         "localRegisteredUsers",
+  //         JSON.stringify([...signedUpUsers, newUser])
+  //       );
+  //     }
   //   });
-
-  //   if (user.username) {
-  //     e.preventDefault();
-  //     setError("Username/Email already taken");
-  //   } else {
-  //     localStorage.setItem(
-  //       "localRegisteredUsers",
-  //       JSON.stringify([...signedUpUsers, newUser])
-  //     );
-  //   }
   // };
+
+  const handleSignup = (e) => {
+    const user = signedUpUsers.find((user) => {
+      return newUser.username === user.username;
+    });
+
+    console.log(user.username);
+    if (user.username) {
+      e.preventDefault();
+      setError("Username/Email already taken");
+    } else {
+      localStorage.setItem(
+        "localRegisteredUsers",
+        JSON.stringify([...signedUpUsers, newUser])
+      );
+    }
+  };
 
   return (
     <div className="sign-up-modal">

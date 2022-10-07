@@ -95,19 +95,24 @@ const Admin = () => {
           </div>
           <div className="admin-users-view-container">
             <div className="admin-users-view">
-              <div className="users-view-header"></div>
+              <div className="users-view-header">
+                <h2>User</h2>
+                <h2>Balance</h2>
+              </div>
               <ul>
                 {users.map((user) => {
                   return (
                     <li className="admin-user-list">
                       <p>{user.username}</p>
                       <p>{user.balance}</p>
+                      =======
                       <input
+                        className="admin-input"
                         value={balance}
                         onChange={(e) => updatedBalance(e.target.value)}
                       />
-
                       <button
+                        className="admin-function-button"
                         onClick={() => {
                           adminWithdraw(user.username);
                         }}
@@ -115,13 +120,14 @@ const Admin = () => {
                         Withdraw
                       </button>
                       <button
+                        className="admin-function-button"
                         onClick={() => {
                           adminDeposit(user.username);
                         }}
                       >
                         Deposit
                       </button>
-                      <button>Transfer</button>
+                      <button class="admin-function-button">Transfer</button>
                     </li>
                   );
                 })}
