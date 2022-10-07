@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Admin.css";
-import Functions from "../components/Bank/Functions";
 import Corporate from "../components/Admin UI/Corporate";
+import BarChart from "../components/Admin UI/BarChart";
 
 const Admin = () => {
   let admins = [
@@ -89,11 +89,13 @@ const Admin = () => {
                 Welcome <span>{admins.username}</span>
               </h1>
             </div>
+
             <button onClick={corporateLogout} className="logoutButton">
               Logout
             </button>
           </div>
           <div className="admin-users-view-container">
+            <BarChart></BarChart>
             <div className="admin-users-view">
               <div className="users-view-header">
                 <h2>User</h2>
@@ -105,11 +107,11 @@ const Admin = () => {
                     <li className="admin-user-list">
                       <p>{user.username}</p>
                       <p>{user.balance}</p>
-                      =======
                       <input
                         className="admin-input"
                         value={balance}
                         onChange={(e) => updatedBalance(e.target.value)}
+                        placeholder="Amount"
                       />
                       <button
                         className="admin-function-button"
@@ -134,7 +136,6 @@ const Admin = () => {
               </ul>
             </div>
           </div>
-          {/* <Functions></Functions> */}
         </div>
       ) : (
         <Corporate Login={corporateLogin} error={error}></Corporate>

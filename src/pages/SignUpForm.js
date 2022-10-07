@@ -71,6 +71,7 @@ function SignUpModal() {
 
   const handleSignup = (e) => {
     const user = signedUpUsers.find((user) => {
+      console.log(newUser.username === user.username);
       return newUser.username === user.username;
     });
 
@@ -85,6 +86,28 @@ function SignUpModal() {
       );
     }
   };
+
+  // const handleSignup = (e) => {
+  //   const user = signedUpUsers.find((user) => {
+  //     console.log(newUser.username === user.username);
+  //     return newUser.username === user.username;
+  //   });
+
+  //   console.log(user.username);
+  //   if (user.username) {
+  //     e.preventDefault();
+  //     setError("Username/Email already taken");
+  //   } else if (!user.username) {
+  //     signedUpUsers.map((user) => {
+  //       if (newUser.username !== user.username) {
+  //         localStorage.setItem(
+  //           "localRegisteredUsers",
+  //           JSON.stringify([...signedUpUsers, newUser])
+  //         );
+  //       }
+  //     });
+  //   }
+  // };
 
   return (
     <div className="sign-up-modal">
