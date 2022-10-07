@@ -6,6 +6,12 @@
   gap: 4rem;
 }
 
+.user-budget-container input::-webkit-outer-spin-button,
+.user-budget-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .user-budget-ui {
   display: flex;
   flex-direction: column;

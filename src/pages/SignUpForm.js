@@ -4,7 +4,6 @@ import signUpLogo from "../assets/logo.png";
 import { useState } from "react";
 
 function SignUpModal() {
-
   const signUp = (e) => {
     e.preventDefault();
   };
@@ -27,7 +26,7 @@ function SignUpModal() {
   if (localStorage.getItem("localRegisteredUsers") === null || undefined) {
     localStorage.setItem("localRegisteredUsers", JSON.stringify(users));
   }
-  
+
   const [newUser, setNewUser] = useState({
     email: "",
     username: "",
@@ -53,34 +52,62 @@ function SignUpModal() {
   };
 
   const handleBalance = (e) => {
-    setNewUser({ ...newUser, balance: e.target.value });
+    setNewUser({ ...newUser, balance: parseInt(e.target.value) });
   };
+
+  // const handleSignup = (e) => {
+  //   signedUpUsers.map((user) => {
+  //     if (newUser.username === user.username) {
+  //       e.preventDefault();
+  //       setError("Username already taken");
+  //     } else {
+  //       localStorage.setItem(
+  //         "localRegisteredUsers",
+  //         JSON.stringify([...signedUpUsers, newUser])
+  //       );
+  //     }
+  //   });
+  // };
 
   const handleSignup = (e) => {
-    signedUpUsers.map((user) => {
-      if (
-        newUser.email !== "" &&
-        newUser.username !== "" &&
-        newUser.password !== "" &&
-        newUser.balance !== ""
-      ) {
-        if (
-          newUser.email !== user.email ||
-          newUser.username !== user.username
-        ) {
-          localStorage.setItem(
-            "localRegisteredUsers",
-            JSON.stringify([...signedUpUsers, newUser])
-          );
-        } else {
-          e.preventDefault();
-          setError("Username/Email already taken");
-        }
-      }
+    const user = signedUpUsers.find((user) => {
+      console.log(newUser.username === user.username);
+      return newUser.username === user.username;
     });
+
+    console.log(user.username);
+    if (user.username) {
+      e.preventDefault();
+      setError("Username/Email already taken");
+    } else {
+      localStorage.setItem(
+        "localRegisteredUsers",
+        JSON.stringify([...signedUpUsers, newUser])
+      );
+    }
   };
 
-  // localStorage.setItem("sample", JSON.stringify(newUser));
+  // const handleSignup = (e) => {
+  //   const user = signedUpUsers.find((user) => {
+  //     console.log(newUser.username === user.username);
+  //     return newUser.username === user.username;
+  //   });
+
+  //   console.log(user.username);
+  //   if (user.username) {
+  //     e.preventDefault();
+  //     setError("Username/Email already taken");
+  //   } else if (!user.username) {
+  //     signedUpUsers.map((user) => {
+  //       if (newUser.username !== user.username) {
+  //         localStorage.setItem(
+  //           "localRegisteredUsers",
+  //           JSON.stringify([...signedUpUsers, newUser])
+  //         );
+  //       }
+  //     });
+  //   }
+  // };
 
   return (
     <div className="sign-up-modal">
@@ -131,7 +158,6 @@ function SignUpModal() {
             required
           />
           <div className="agree-box">
-
             <input className="agree-checkbox" type="checkbox" required />
 
             <p className="agree-text">
@@ -145,7 +171,7 @@ function SignUpModal() {
             type="submit"
           >
             Sign-up
-          </Link >
+          </Link>
         </div>
       </form>
     </div>

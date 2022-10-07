@@ -32,9 +32,7 @@ const User = () => {
 
   const userLogout = () => {
     setUser({ username: "", password: "" });
-
     setError("");
-    // localStorage.removeItem("localUsers");
   };
 
   localStorage.setItem("loggedInUser", JSON.stringify(user));
@@ -56,7 +54,7 @@ const User = () => {
                 );
               }
             })}
-            
+
             <img className="user-logo" src={logo} alt="logo" />
             <button type="button" onClick={userLogout} className="user-logout">
               Logout
