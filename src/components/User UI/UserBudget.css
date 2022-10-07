@@ -13,7 +13,7 @@
 }
 
 .user-budget {
-  height: 20rem;
+  height: 25rem;
   width: 35rem;
   display: flex;
   flex-direction: column;
@@ -24,22 +24,45 @@
   border-radius: 1rem;
   color: white;
   text-transform: uppercase;
+  box-shadow: 10px 10px 20px black;
+}
+
+.user-budget h2 {
+  font-size: 2rem;
 }
 
 .user-budget label {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 30% 80%;
   align-items: center;
-  width: 30rem;
+  width: 85%;
 }
 
 .user-input {
-  margin-left: 2rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 0.5rem;
+  width: 85%;
 }
 
 .user-input-button {
-  height: 3rem;
+  height: 3.5rem;
   width: 8rem;
+  border: none;
+  color: brown;
+  margin: 1.6rem 0.7rem 0;
+  background-color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.user-input-button:hover {
+  background-color: brown;
+  color: white;
+  transition: all 0.5s;
 }
 
 .user-budget-balance {
@@ -54,6 +77,14 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  box-shadow: 10px 10px 20px black;
+}
+
+.user-budget-balance div {
+  background-color: white;
+  padding: 3rem 1rem;
+  color: black;
+  border-radius: 0.6rem;
 }
 
 .user-expense-container,
@@ -61,18 +92,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
   width: 60rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
 }
 
 .user-expense-container {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  background-color: rgba(165, 42, 42, 0.35);
+  background-color: white;
+
 }
 
 .user-expense-header {
   font-size: 1.75rem;
+  color: white;
+  background-color: brown;
+  padding-bottom: 0;
 }
 
 .user-expense-main {
@@ -83,9 +121,10 @@
   justify-content: flex-start;
   align-items: center;
   background-color: brown;
-  height: 70rem;
+  height: 75rem;
   width: 62rem;
   border-radius: 1rem;
+  box-shadow: 10px 10px 20px black;
 }
 
 .user-expense-buttons {
