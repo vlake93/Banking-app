@@ -46,10 +46,10 @@ const Admin = () => {
 
   const adminWithdraw = (username) => {
     const updatedUsers = users.map((user) => {
-      if (user.username === username) {
+      if (user.username === username && user.balance >= balance) {
         return {
           ...user,
-          balance: user.balance - balance,
+          balance: (user.balance - balance),
         };
       }
 
@@ -64,7 +64,7 @@ const Admin = () => {
       if (user.username === username) {
         return {
           ...user,
-          balance: parseInt(user.balance) + parseInt(balance),
+          balance: (parseFloat(user.balance) + parseFloat(balance)),
         };
       }
 
@@ -108,9 +108,12 @@ const Admin = () => {
                       <p>{user.username}</p>
                       <p>{user.balance}</p>
                       <input
+                        type="text"
                         className="admin-input"
+                        autocomplete="false"
                         value={balance}
-                        onChange={(e) => updatedBalance(e.target.value)}
+                        onChange={(e) => updatedBalance(e.target.value
+                          .replace(/[^0-9.]/g,""))}
                         placeholder="Amount"
                       />
                       <button
