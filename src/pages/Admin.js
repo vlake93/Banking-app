@@ -82,16 +82,12 @@ const Admin = () => {
       if (user.username === username) {
         return {
           ...user,
-          balance:
-            parseFloat(user.balance).toFixed(2) -
-            parseFloat(balance).toFixed(2),
+          balance: parseInt(user.balance) - parseInt(balance),
         };
       } else if (user.username === toUser) {
         return {
           ...user,
-          balance:
-            parseFloat(user.balance).toFixed(2) +
-            parseFloat(balance).toFixed(2),
+          balance: parseInt(user.balance) + parseInt(balance),
         };
       } else {
         return user;
@@ -138,7 +134,7 @@ const Admin = () => {
                     <li className="admin-user-list">
                       <div className="user-first-line">
                         <p>{user.username}</p>
-                        <p>{parseFloat(user.balance).toFixed(2)}</p>
+                        <p>{user.balance}</p>
                         <input
                           type="number"
                           className="admin-input"

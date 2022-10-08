@@ -49,9 +49,10 @@ function UserBudget() {
     );
   };
 
-  const handleEdit = (expense, updatedExpense) => {
+  const handleEdit = (expense) => {
     setEditing(expense.id);
-    setEditAmount(updatedExpense);
+    setEditAmount(expense.amount);
+    setEditTitle(expense.title);
   };
 
   const expenseList =
@@ -59,14 +60,15 @@ function UserBudget() {
 
   const handleUpdate = (expense) => {
     const updatedList = expenseList.map((xpn) => {
-      if (xpn.id === expense) {
-        return { ...xpn, amount: xpn.amount, title: xpn.title };
+      if (xpn.id === expense.id) {
+        return { ...xpn, amount: editAmount, title: editTitle };
       }
       return xpn;
     });
     setExpenses(updatedList);
     setEditing(-1);
   };
+  console.log(editing);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -141,7 +143,6 @@ function UserBudget() {
                 {editing === expense.id ? (
                   <input
                     type="text"
-                    defaultValue={expense.amount}
                     value={editAmount}
                     onChange={(e) => setEditAmount(e.target.value)}
                   />
@@ -153,7 +154,7 @@ function UserBudget() {
                 {editing === expense.id ? (
                   <input
                     type="text"
-                    defaultValue={expense.title}
+                    // defaultValue={expense.title}
                     value={editTitle}
                     onChange={(e) => setEditTitle(e.target.value)}
                   />
@@ -163,18 +164,19 @@ function UserBudget() {
               </h2>
               <div className="user-expense-delete-container">
                 <div className="user-expense-buttons">
-                  <button
-                    className="user-expense-edit"
-                    onClick={() => handleEdit(expense, expense.title)}
-                  >
+                  <button className="user-expense-edit">
                     {editing === expense.id ? (
                       <img
                         src={check}
                         alt="check logo"
-                        onClick={() => handleUpdate(expense.id)}
+                        onClick={() => handleUpdate(expense)}
                       />
                     ) : (
-                      <img src={pencil} alt="pencil logo" />
+                      <img
+                        src={pencil}
+                        alt="pencil logo"
+                        onClick={() => handleEdit(expense)}
+                      />
                     )}
                   </button>
                   <button
