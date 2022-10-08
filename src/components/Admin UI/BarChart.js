@@ -34,6 +34,7 @@ const BarChart = () => {
                 "rgba(75, 192, 192, 0.8)",
                 "rgba(153, 102, 255, 0.8)",
                 "rgba(255, 159, 64, 0.8)",
+                "rgba(224, 187, 228, 0.8)",
               ],
               borderColor: [
                 "rgba(255, 99, 132, 1)",
@@ -42,6 +43,7 @@ const BarChart = () => {
                 "rgba(75, 192, 192, 1)",
                 "rgba(153, 102, 255, 1)",
                 "rgba(255, 159, 64, 1)",
+                "rgba(224, 187, 228, 1)",
               ],
               borderWidth: 4,
               hoverOffset: 4,

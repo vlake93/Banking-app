@@ -55,28 +55,13 @@ function SignUpModal() {
     setNewUser({ ...newUser, balance: parseInt(e.target.value) });
   };
 
-  // const handleSignup = (e) => {
-  //   signedUpUsers.map((user) => {
-  //     if (newUser.username === user.username) {
-  //       e.preventDefault();
-  //       setError("Username already taken");
-  //     } else {
-  //       localStorage.setItem(
-  //         "localRegisteredUsers",
-  //         JSON.stringify([...signedUpUsers, newUser])
-  //       );
-  //     }
-  //   });
-  // };
-
   const handleSignup = (e) => {
     const user = signedUpUsers.find((user) => {
       console.log(newUser.username === user.username);
       return newUser.username === user.username;
     });
 
-    console.log(user.username);
-    if (user.username) {
+    if (user) {
       e.preventDefault();
       setError("Username/Email already taken");
     } else {
@@ -86,28 +71,6 @@ function SignUpModal() {
       );
     }
   };
-
-  // const handleSignup = (e) => {
-  //   const user = signedUpUsers.find((user) => {
-  //     console.log(newUser.username === user.username);
-  //     return newUser.username === user.username;
-  //   });
-
-  //   console.log(user.username);
-  //   if (user.username) {
-  //     e.preventDefault();
-  //     setError("Username/Email already taken");
-  //   } else if (!user.username) {
-  //     signedUpUsers.map((user) => {
-  //       if (newUser.username !== user.username) {
-  //         localStorage.setItem(
-  //           "localRegisteredUsers",
-  //           JSON.stringify([...signedUpUsers, newUser])
-  //         );
-  //       }
-  //     });
-  //   }
-  // };
 
   return (
     <div className="sign-up-modal">

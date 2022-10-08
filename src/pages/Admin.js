@@ -12,9 +12,15 @@ const Admin = () => {
     { username: "shai", password: "admin" },
   ];
 
+  const signedUpUsers = JSON.parse(
+    localStorage.getItem("localRegisteredUsers")
+  );
+
   const [admin, setAdmin] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const [balance, setBalance] = useState("");
+  const [users, setUsers] = useState(signedUpUsers);
+  const [toUser, setToUser] = useState("");
 
   const corporateLogin = (details) => {
     admins.map((adminmap) => {
@@ -37,11 +43,6 @@ const Admin = () => {
     setError("");
   };
 
-  const signedUpUsers = JSON.parse(
-    localStorage.getItem("localRegisteredUsers")
-  );
-  const [users, setUsers] = useState(signedUpUsers);
-
   const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
 
   const adminWithdraw = (username) => {
@@ -55,6 +56,7 @@ const Admin = () => {
 
       return user;
     });
+    console.log(balance);
     setUsers(updatedUsers);
     localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
   };
@@ -69,6 +71,31 @@ const Admin = () => {
       }
 
       return user;
+    });
+    // setBalance("");
+    setUsers(updatedUsers);
+    localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
+  };
+
+  const adminTransfer = (username, toUser) => {
+    const updatedUsers = users.map((user) => {
+      if (user.username === username) {
+        return {
+          ...user,
+          balance:
+            parseFloat(user.balance).toFixed(2) -
+            parseFloat(balance).toFixed(2),
+        };
+      } else if (user.username === toUser) {
+        return {
+          ...user,
+          balance:
+            parseFloat(user.balance).toFixed(2) +
+            parseFloat(balance).toFixed(2),
+        };
+      } else {
+        return user;
+      }
     });
     setUsers(updatedUsers);
     localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
@@ -95,7 +122,11 @@ const Admin = () => {
             </button>
           </div>
           <div className="admin-users-view-container">
-            <BarChart></BarChart>
+            <div>
+              <h1 className="chart-header">Total deposit composition</h1>
+              <BarChart></BarChart>
+            </div>
+
             <div className="admin-users-view">
               <div className="users-view-header">
                 <h2>User</h2>
@@ -105,31 +136,56 @@ const Admin = () => {
                 {users.map((user) => {
                   return (
                     <li className="admin-user-list">
-                      <p>{user.username}</p>
-                      <p>{user.balance}</p>
-                      <input
-                        className="admin-input"
-                        value={balance}
-                        onChange={(e) => updatedBalance(e.target.value)}
-                        placeholder="Amount"
-                      />
-                      <button
-                        className="admin-function-button"
-                        onClick={() => {
-                          adminWithdraw(user.username);
-                        }}
-                      >
-                        Withdraw
-                      </button>
-                      <button
-                        className="admin-function-button"
-                        onClick={() => {
-                          adminDeposit(user.username);
-                        }}
-                      >
-                        Deposit
-                      </button>
-                      <button class="admin-function-button">Transfer</button>
+                      <div className="user-first-line">
+                        <p>{user.username}</p>
+                        <p>{parseFloat(user.balance).toFixed(2)}</p>
+                        <input
+                          type="number"
+                          className="admin-input"
+                          // value={balance}
+                          onChange={(e) => updatedBalance(e.target.value)}
+                          placeholder="Amount"
+                        />
+                        <button
+                          className="admin-function-button"
+                          onClick={() => {
+                            adminWithdraw(user.username);
+                          }}
+                        >
+                          Withdraw
+                        </button>
+                        <button
+                          className="admin-function-button"
+                          onClick={() => {
+                            adminDeposit(user.username);
+                          }}
+                        >
+                          Deposit
+                        </button>
+                      </div>
+                      <div className="user-second-line">
+                        <p></p>
+                        <p></p>
+                        <label>
+                          <input
+                            type="text"
+                            placeholder="Username"
+                            className="admin-input"
+                            onChange={(e) => {
+                              setToUser(e.target.value);
+                            }}
+                          />
+                        </label>
+                        <p></p>
+                        <button
+                          class="admin-function-button"
+                          onClick={() => {
+                            adminTransfer(user.username, toUser);
+                          }}
+                        >
+                          Transfer
+                        </button>
+                      </div>
                     </li>
                   );
                 })}
