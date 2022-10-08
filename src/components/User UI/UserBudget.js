@@ -59,7 +59,7 @@ function UserBudget() {
 
   const handleUpdate = (expense) => {
     const updatedList = expenseList.map((xpn) => {
-      if (xpn.id === expense.id) {
+      if (xpn.id === expense) {
         return { ...xpn, amount: xpn.amount, title: xpn.title };
       }
       return xpn;
@@ -77,7 +77,7 @@ function UserBudget() {
     JSON.parse(localStorage.getItem(`${loggedIn.username}localExpenses`)) || [];
 
   const expenseTotal = loggedInExpenses.reduce((accumulator, expense) => {
-    return parseInt(accumulator) + parseInt(expense.amount);
+    return parseFloat(accumulator) + parseFloat(expense.amount);
   }, 0);
 
   return (
@@ -90,7 +90,7 @@ function UserBudget() {
             <input
               id="expense"
               name="expense"
-              type="text"
+              type="number"
               value={expense}
               className="user-input"
               onChange={(e) => setExpense(e.target.value)}
@@ -116,15 +116,15 @@ function UserBudget() {
         <div className="user-budget-balance">
           <div>
             <h2>Bank Balance</h2>
-            <h2>₱{loggedIn.balance}.00</h2>
+            <h2>₱{parseFloat(loggedIn.balance).toFixed(2)}</h2>
           </div>
           <div>
             <h2>Expenses</h2>
-            <h2>₱{expenseTotal}</h2>
+            <h2>₱{parseFloat(expenseTotal).toFixed(2)}</h2>
           </div>
           <div>
             <h2>Remaining balance</h2>
-            <h2>₱{loggedIn.balance - expenseTotal}.00</h2>
+            <h2>₱{parseFloat(loggedIn.balance - expenseTotal).toFixed(2)}</h2>
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@ function UserBudget() {
                     onChange={(e) => setEditAmount(e.target.value)}
                   />
                 ) : (
-                  <span>₱{expense.amount}.00</span>
+                  <span>₱{parseFloat(expense.amount).toFixed(2)}</span>
                 )}
               </h2>
               <h2 className="user-expense-amount">
@@ -162,7 +162,6 @@ function UserBudget() {
                 )}
               </h2>
               <div className="user-expense-delete-container">
-
                 <div className="user-expense-buttons">
                   <button
                     className="user-expense-edit"
