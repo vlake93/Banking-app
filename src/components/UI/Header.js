@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
-import logo from "../../assets/logo.png";
 import Vicash from "../../assets/vicash.png";
 
 function Header() {
   return (
     <div className="header">
       <div className="header-logo-container">
-        {/* <img className="header-logo" src={logo} alt="logo" /> */}
         <img src={Vicash} className="header-vicash" />
       </div>
       <div className="header-links">
