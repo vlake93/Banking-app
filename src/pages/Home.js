@@ -11,13 +11,13 @@ const Home = () => {
       email: "test@test.com",
       username: "vic",
       password: "user",
-      balance: 1000,
+      balance: parseFloat(1000),
     },
     {
       email: "test@test.com",
       username: "shai",
       password: "user",
-      balance: 0,
+      balance: parseFloat(1000),
     },
   ];
 

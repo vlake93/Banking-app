@@ -21,6 +21,9 @@ const Admin = () => {
   const [balance, setBalance] = useState("");
   const [users, setUsers] = useState(signedUpUsers);
   const [toUser, setToUser] = useState("");
+  const [balanceError, setBalanceError] = useState("");
+
+  const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
 
   const corporateLogin = (details) => {
     admins.map((adminmap) => {
@@ -43,21 +46,26 @@ const Admin = () => {
     setError("");
   };
 
-  const date = new Date().toLocaleString("en-US", { dateStyle: "full" });
-
   const adminWithdraw = (username) => {
     const updatedUsers = users.map((user) => {
-      if (user.username === username && user.balance >= balance) {
+      if (
+        user.username === username &&
+        user.balance >= balance &&
+        balance !== ""
+      ) {
         return {
           ...user,
-          balance: (user.balance - balance),
+          balance: parseFloat(user.balance) - parseFloat(balance),
         };
+      } else if (user.balance <= balance && user.username === username) {
+        setBalanceError("Insufficient balance");
+      } else if (balance === "") {
+        setBalanceError("Please input valid amount");
       }
-
       return user;
     });
-    console.log(balance);
     setUsers(updatedUsers);
+    setBalance("");
     localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
   };
 
@@ -66,39 +74,65 @@ const Admin = () => {
       if (user.username === username) {
         return {
           ...user,
-          balance: (parseFloat(user.balance) + parseFloat(balance)),
+          balance: parseFloat(user.balance) + parseFloat(balance),
         };
       }
 
       return user;
     });
-    // setBalance("");
+    setBalance("");
     setUsers(updatedUsers);
     localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
   };
 
+  ///  BUG  /// Input for input fields gets filled simultaneously because it has same state
+  ///  BUG  /// Withdraw error shows because it reads other user.balances
+
   const adminTransfer = (username, toUser) => {
     const updatedUsers = users.map((user) => {
-      if (user.username === username) {
+      if (
+        user.username === username &&
+        user.balance >= balance &&
+        toUser === user.username
+      ) {
         return {
           ...user,
-          balance: parseInt(user.balance) - parseInt(balance),
+          balance: parseFloat(user.balance - balance),
         };
-      } else if (user.username === toUser) {
+      } else if (user.username === toUser && user.balance >= balance) {
         return {
           ...user,
-          balance: parseInt(user.balance) + parseInt(balance),
+          balance: parseFloat(user.balance + balance),
         };
+      } else if (user.username !== toUser) {
+        setBalanceError("User not found");
+      } else if (balance === "") {
+        setBalanceError("Please input valid amount");
       } else {
-        return user;
+        setBalanceError("Insufficient balance");
       }
+      return user;
     });
     setUsers(updatedUsers);
+    setBalance("");
+    setToUser("");
     localStorage.setItem("localRegisteredUsers", JSON.stringify(updatedUsers));
   };
 
   const updatedBalance = (value) => {
     setBalance(value);
+  };
+
+  // const noError = (username) => {
+  //   users.map((user) => {
+  //     if (user.username === username) {
+  //       setBalanceError("");
+  //     }
+  //   });
+  // };
+
+  const noError = () => {
+    setBalanceError("");
   };
 
   return (
@@ -134,13 +168,18 @@ const Admin = () => {
                     <li className="admin-user-list">
                       <div className="user-first-line">
                         <p>{user.username}</p>
-                        <p>{user.balance}</p>
+                        <p>₱{parseFloat(user.balance).toFixed(2)}</p>
                         <input
                           type="number"
                           className="admin-input"
-                          // value={balance}
-                          onChange={(e) => updatedBalance(e.target.value)}
+                          value={balance}
+                          onChange={(e) =>
+                            updatedBalance(parseFloat(e.target.value))
+                          }
                           placeholder="Amount"
+                          onFocus={() => {
+                            noError();
+                          }}
                         />
                         <button
                           className="admin-function-button"
@@ -161,14 +200,18 @@ const Admin = () => {
                       </div>
                       <div className="user-second-line">
                         <p></p>
-                        <p></p>
+                        <p>{balanceError}</p>
                         <label>
                           <input
                             type="text"
                             placeholder="Username"
                             className="admin-input"
+                            value={toUser}
                             onChange={(e) => {
                               setToUser(e.target.value);
+                            }}
+                            onFocus={() => {
+                              noError();
                             }}
                           />
                         </label>
