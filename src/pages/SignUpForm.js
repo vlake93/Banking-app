@@ -19,7 +19,7 @@ function SignUpModal() {
       email: "test@test.com",
       username: "shai",
       password: "user",
-      balance: 0,
+      balance: 1000,
     },
   ];
 

@@ -5,6 +5,25 @@ import logo from "../assets/logo.png";
 import UserBudget from "../components/User UI/UserBudget";
 
 const User = () => {
+  let users = [
+    {
+      email: "test@test.com",
+      username: "vic",
+      password: "user",
+      balance: 1000,
+    },
+    {
+      email: "test@test.com",
+      username: "shai",
+      password: "user",
+      balance: 1000,
+    },
+  ];
+
+  if (localStorage.getItem("localRegisteredUsers") === null || undefined) {
+    localStorage.setItem("localRegisteredUsers", JSON.stringify(users));
+  }
+
   const RegisteredUsers = JSON.parse(
     localStorage.getItem("localRegisteredUsers")
   );

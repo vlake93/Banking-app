@@ -121,6 +121,7 @@
   width: 80%;
   cursor: pointer;
   outline: none;
+  text-transform: uppercase;
 }
 
 .admin-function-button {
