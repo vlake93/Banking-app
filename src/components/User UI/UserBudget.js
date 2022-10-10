@@ -67,6 +67,10 @@ function UserBudget() {
     });
     setExpenses(updatedList);
     setEditing(-1);
+    localStorage.setItem(
+      `${loggedIn.username}localExpenses`,
+      JSON.stringify(updatedList)
+    );
   };
   console.log(editing);
 
