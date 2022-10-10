@@ -131,6 +131,8 @@
   width: 62rem;
   border-radius: 1rem;
   box-shadow: 10px 10px 20px black;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .user-expense-buttons {
