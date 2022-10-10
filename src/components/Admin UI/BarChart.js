@@ -47,25 +47,43 @@ const BarChart = () => {
               ],
               borderWidth: 4,
               hoverOffset: 4,
+              datalabels: {
+                color: "white"
+              },
             },
           ],
         }}
-        height={400}
-        width={600}
+        height={200}
+        width={300}
         options={{
           maintainAspectRatio: false,
           scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: "none",
+                  drawBorder: false
+                },
+                ticks: {
+                  display: false,
+                }
+              }],
             yAxes: [
               {
+                gridLines: {
+                  display: "none",
+                  drawBorder: false
+                },
                 ticks: {
-                  beginAtZero: true,
+                  display: false,
                 },
               },
             ],
           },
           legend: {
             labels: {
-              fontSize: 20,
+              fontSize: 12,
+              fontColor: "white"
             },
           },
         }}

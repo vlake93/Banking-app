@@ -144,8 +144,8 @@ const Admin = () => {
             </button>
           </div>
           <div className="admin-users-view-container">
-            <div>
-              <h1 className="chart-header">Total deposit composition</h1>
+            <div className="chart-view">
+              <h1 className="chart-header">Total Deposit Composition</h1>
               <BarChart></BarChart>
             </div>
 

@@ -39,3 +39,9 @@ p {
   cursor: pointer;
   text-decoration: none;
 }
+
+.signup-link:hover {
+  background-color: white;
+  color: brown;
+  transition: all 0.5s;
+}
