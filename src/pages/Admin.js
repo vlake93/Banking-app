@@ -86,14 +86,14 @@ const Admin = () => {
   };
 
   ///  BUG  /// Input for input fields gets filled simultaneously because it has same state
-  ///  BUG  /// Withdraw error shows because it reads other user.balances
+  ///  BUG  /// Withdraw/Transfer error shows because it reads other user.balances
 
   const adminTransfer = (username, toUser) => {
     const updatedUsers = users.map((user) => {
       if (
         user.username === username &&
         user.balance >= balance &&
-        toUser === user.username
+        toUser !== username
       ) {
         return {
           ...user,
@@ -104,15 +104,16 @@ const Admin = () => {
           ...user,
           balance: parseFloat(user.balance + balance),
         };
-      } else if (user.username !== toUser) {
-        setBalanceError("User not found");
       } else if (balance === "") {
         setBalanceError("Please input valid amount");
-      } else {
+      } else if (user.balance <= balance) {
         setBalanceError("Insufficient balance");
+      } else {
+        setBalanceError("User not found");
       }
       return user;
     });
+    console.log(toUser);
     setUsers(updatedUsers);
     setBalance("");
     setToUser("");
@@ -120,17 +121,8 @@ const Admin = () => {
   };
 
   const updatedBalance = (value) => {
-    setBalance(value);
+    setBalance(Math.abs(value));
   };
-
-  // const noError = (username) => {
-  //   users.map((user) => {
-  //     if (user.username === username) {
-  //       setBalanceError("");
-  //     }
-  //   });
-  // };
-
   const noError = () => {
     setBalanceError("");
   };
